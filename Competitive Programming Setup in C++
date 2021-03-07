@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
+int rng(int lim) {
+    uniform_int_distribution<int> uid(0,lim-1);
+    return uid(rang);
+}
+const int mod = 1'000'000'007;
+const int N = 3e5;
+vector<int> v[N];
+int a[N];
+/* ========== YOUR CODE HERE ========= */
+void solution() {
+    int i, j, k, n, m;
+}
+/* ========== YOUR CODE HERE ========= */
+int main() {
+     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+     srand(chrono::high_resolution_clock::now().time_since_epoch().count());
+     int t;
+     cin>>t;;
+     while(t--) {
+         solution();
+     }
+     return 0;
+}
