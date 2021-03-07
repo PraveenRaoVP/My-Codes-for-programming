@@ -1,0 +1,201 @@
+{
+    "java.debug.settings.console": "externalTerminal",
+    "editor.fontSize": 20,
+    "debug.console.fontSize": 10,
+    "c-cpp-compile-run.run-in-external-terminal": true,
+    
+    "editor.tabSize": 5,
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    "launch": {
+    
+
+        "configurations": [],
+        "compounds": []
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "sonarlint.rules": {
+        "python:S100": {
+            "level": "off"
+        },
+        "python:S1481": {
+            "level": "off"
+        },
+        "python:S1764": {
+            "level": "off"
+        },
+        "python:S905": {
+            "level": "off"
+        },
+        "python:S1854": {
+            "level": "off"
+        },
+        "python:S1066": {
+            "level": "off"
+        },
+        "java:S106": {
+            "level": "off"
+        },
+        "python:S2208": {
+            "level": "off"
+        },
+        "python:S125": {
+            "level": "off"
+        },
+        "python:S3626": {
+            "level": "off"
+        },
+        "python:S1763": {
+            "level": "off"
+        },
+        "python:S5632": {
+            "level": "off"
+        },
+        "python:S5708": {
+            "level": "off"
+        },
+        "python:S1542": {
+            "level": "off"
+        },
+        "python:S116": {
+            "level": "off"
+        },
+        "python:S5603": {
+            "level": "off"
+        },
+        "python:S3776": {
+            "level": "off"
+        },
+        "python:S1751": {
+            "level": "off"
+        },
+        "python:S117": {
+            "level": "off"
+        },
+        "python:S5542": {
+            "level": "off"
+        },
+        "python:S5547": {
+            "level": "off"
+        },
+        "java:S1488": {
+            "level": "off"
+        },
+        "java:S5547": {
+            "level": "off"
+        },
+        "java:S5542": {
+            "level": "off"
+        },
+        "java:S1117": {
+            "level": "off"
+        },
+        "java:S1854": {
+            "level": "off"
+        },
+        "java:S1481": {
+            "level": "off"
+        },
+        "python:S1192": {
+            "level": "off"
+        },
+        "java:S125": {
+            "level": "off"
+        },
+        "java:S1197": {
+            "level": "off"
+        },
+        "java:S1192": {
+            "level": "off"
+        },
+        "java:S1149": {
+            "level": "off"
+        },
+        "python:S5754": {
+            "level": "off"
+        },
+        "python:S1186": {
+            "level": "off"
+        },
+        "python:S5720": {
+            "level": "off"
+        },
+        "python:S930": {
+            "level": "off"
+        },
+        "python:S1871": {
+            "level": "off"
+        },
+        "python:S5719": {
+            "level": "off"
+        },
+        "java:S1161": {
+            "level": "off"
+        }
+    },
+    "python.terminal.executeInFileDir": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "pythonIndent.useTabOnHangingIndent": true,
+    "workbench.colorTheme": "Monokai",
+    "python.languageServer": "Microsoft",
+    "code-runner.runInTerminal": true,
+    "C_Cpp.updateChannel": "Insiders",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "terminal.explorerKind": "external",
+    "sonarlint.analyzerProperties": {
+    
+    },
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true,
+    "files.associations": {"*html" : "html"},
+    "html-css-class-completion.enableEmmetSupport": true,
+    "liveServer.settings.AdvanceCustomBrowserCmdLine: ": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+	"liveServer.settings.NoBrowser": false,
+    "[json]": {
+
+
+
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "mssql.connections": [
+        {
+            "server": "{{put-server-name-here}}",
+            "database": "{{put-database-name-here}}",
+            "user": "{{put-username-here}}",
+            "password": "{{put-password-here}}"
+        }
+    ],
+    "vscode-neovim.neovimExecutablePaths.win32": "D:\\Games\\nvim-win64\\Neovim\\bin\\nvim.exe",
+    "vim.easymotion": true,
+    "vim.neovimPath": "D:\\Games\\nvim-win64\\Neovim\\bin\\nvim.exe",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace, Monaco, Fixedsys",
+    "terminal.integrated.automationShell.linux": "",
+    "remote.extensionKind": {
+    
+        "pub.name": [
+            "ui"
+        ]
+    },
+    "tabnine.experimentalAutoImports": true,
+    "redhat.telemetry.enabled": false,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "csharp.unitTestDebuggingOptions": {
+    
+    }
+    
+}
