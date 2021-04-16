@@ -2,16 +2,33 @@ syntax on
 set number
 set guifont=Fixedsys:h18
 set clipboard=unnamed
-set ai 
-set sm
-set hls
-set shortmess=a
-set cmdheight=2
+set ai
+set ignorecase smartcase
+set incsearch
+set scrolloff=7
+
+"base16 color theme
+"let base16colorspace=256
+
+
+"molokai theme 
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+
+set guioptions-=m   "Hide menu bar
+set guioptions-=T   "Hide tool bar
+set guioptions-=r   "Hide scrollbar
+set guioptions-=L  "remove left-hand scroll bar
+
+map <F12> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+
 let java_highlight_all=1
 let java_highlight_functions="style"
 let java_allow_cpp_keywords=1
 
 let mapleader = ","
+set pythonthreehome = "C:\Python36-32\"
+set pythonthreedll = "C:\Python36-32\python36.dll"
 
 autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -std=c++14 % -o %:r -Wl,--stack,268435456<CR>
 autocmd filetype cpp nnoremap <F10> :!%:r<CR>
@@ -37,6 +54,9 @@ map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
 map <C-n> <Esc>:tabnew
 
+map <C-Tab> <Esc>:bn<CR>
+
+
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
 map <C-n> <Esc>:tabnew
@@ -46,14 +66,16 @@ endif
 
 call plug#begin('~/vimfiles/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'morehetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'git@github.com:kien/ctrlp.vim.git'
-Plug 'git@github.com:Valloric/YouCompleteMe.git'
+"Plug 'git@github.com:Valloric/YouCompleteMe.git'
+Plug 'codota/tabnine-vim'
+Plug 'patstockwell/vim-monokai-tasty'
 Plug 'ap/vim-buftabline'
+Plug 'chriskempson/base16-vim'
 Plug 'turbio/bracey.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'klen/python-mode'
@@ -68,12 +90,19 @@ Plug 'lepture/vim-jinja'
 Plug 'pangloss/vim-javascript'
 Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
+
+call plug#end()
+filetype plugin indent on
+
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
 map <C-n> <Esc>:tabnew
 
-call plug#end()
-filetype plugin indent on
+
+"colorscheme base16-atelier-forest
+colorscheme vim-monokai-tasty
+let g:airline_theme='monokai_tasty' 
+let g:lightline = { 'colorscheme': 'monokai_tasty' }
 
 autocmd VimEnter * NERDTree
 
