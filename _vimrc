@@ -1,23 +1,27 @@
 syntax on
+set nocompatible
 set number
+set relativenumber
 set guifont=Fixedsys:h18
 set clipboard=unnamed
 set ai
 set ignorecase smartcase
 set incsearch
 set scrolloff=7
+
 "base16 color theme
 "let base16colorspace=256
-
 
 "molokai theme 
 "let g:molokai_original = 1
 "let g:rehash256 = 1
-
+autocmd GUIEnter * simalt ~x
 set guioptions-=m   "Hide menu bar
 set guioptions-=T   "Hide tool bar
 set guioptions-=r   "Hide scrollbar
 set guioptions-=L  "remove left-hand scroll bar
+
+filetype plugin on
 
 map <F12> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
@@ -43,8 +47,8 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 "map <F11> :cprevious<Return>
 "map <F12> :cnext<Return>
 
-inoremap { {}<Left>
-inoremap {<CR> {<CR>}<Esc>
+"inoremap { {}<Left>
+inoremap {<CR> {<CR>}
 inoremap {{ {
 inoremap {} {}
 
@@ -66,7 +70,7 @@ endif
 
 call plug#begin('~/vimfiles/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'vim-scripts/AutoComplPop'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
@@ -75,7 +79,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'git@github.com:kien/ctrlp.vim.git'
 Plug 'SirVer/ultisnips'
 "Plug 'git@github.com:Valloric/YouCompleteMe.git'
-"Plug 'codota/tabnine-vim'
+Plug 'codota/tabnine-vim'
 "Plug 'Shougo/deoplete.nvim'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'ap/vim-buftabline'
@@ -104,6 +108,8 @@ map <C-n> <Esc>:tabnew
 
 "set complete+=kspell
 
+set path+=**
+set wildmenu
 
 "colorscheme base16-atelier-forest
 colorscheme vim-monokai-tasty
@@ -113,7 +119,8 @@ let g:lightline = { 'colorscheme': 'monokai_tasty' }
 autocmd VimEnter * NERDTree 
 
 let NERDTreeIgnore = ['\.DAT$', '\.LOG1$', '\.LOG1$']
-nmap <F2> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeToggle <CR>
+nmap <F3> :NERDTreeRefreshRoot <CR>
 
 set tabstop=4
 set shiftwidth=4
@@ -121,12 +128,15 @@ set softtabstop=4
 
 set expandtab
 
-autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType html setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType css setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType python map  <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 autocmd FileType python imap  <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
 
+inoremap <C-Return> <CR><CR><C-o>k<Tab>
 "let g:deoplete#enable_at_startup = 1
+
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 set encoding=utf-8
