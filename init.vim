@@ -56,9 +56,10 @@ let NERDTreeIgnore = ['\.DAT$', '\.LOG1$', '\.LOG1$']
 nnoremap <C-t> :NERDTreeToggle <CR>
 nnoremap <C-o> :browse oldfiles <CR>
 nnoremap ,ntf :NERDTreeFocus <CR>
+nnoremap <C-r> :NERDTreeRefreshRoot <CR>
 
 " >> setup nerdcomment key bindings
-let g:NERDCreateDefaultMappings = 0
+let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 
 " >> neovim fullscreen
@@ -70,6 +71,9 @@ let g:fullscreen#stop_command = "call rpcnotify(0, 'Gui', 'WindowFullScreen', 0)
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
 map <C-n> <Esc>:tabnew<CR>
+
+"highlight codes
+hi Comment ctermfg=LightBlue
 
 
 
