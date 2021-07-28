@@ -17,6 +17,7 @@ let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', '
     Plug 'junegunn/fzf',{'do':{ -> fzf#install() } } 
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
+    Plug 'mhinz/vim-startify'
 
 call plug#end()
 
