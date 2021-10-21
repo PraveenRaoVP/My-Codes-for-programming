@@ -2,11 +2,12 @@
 call plug#begin(stdpath('data') . 'vimplug')
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'preservim/nerdtree'
+    Plug 'patstockwell/vim-monokai-tasty'
     Plug 'lambdalisue/vim-fullscreen'   
     Plug 'preservim/nerdcommenter'
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " this is for auto complete, prettier and tslinting
 
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-python']  " list of CoC extensions needed
+ let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-python']  " list of CoC extensions needed
 
     Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 
@@ -24,7 +25,10 @@ call plug#end()
 
 filetype plugin indent on
 
-colorscheme PaperColor
+"colorscheme PaperColor
+colorscheme vim-monokai-tasty
+
+
 
 " basic settings
 syntax on
@@ -48,7 +52,8 @@ set autoindent
 set mouse=a  " mouse support
 set autochdir
 set scrolloff=7
-set clipboard=unnamedplus
+set clipboard=unnamed
+set clipboard+=unnamedplus
 " set leader key to ,
 let g:mapleader=","
 
@@ -116,7 +121,7 @@ let g:fzf_tags_command = 'ctags -R'
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+let $FZF_DEFAULT_COMMAND=""
 
 
 " Customize fzf colors to match your color scheme
