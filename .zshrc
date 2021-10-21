@@ -54,6 +54,23 @@ source ~/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git laravel5 composer pip python sudo)
 
+
+
+#User defined functions and codes
+function cd {
+    builtin cd $@
+    pwd > ~/.last_dir
+}
+
+# restore last saved path
+if [ -f ~/.last_dir ]
+    then cd `cat ~/.last_dir`
+else cd ~
+fi
+
+
+
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -124,3 +141,5 @@ export GPG_TTY=$(tty)
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+
