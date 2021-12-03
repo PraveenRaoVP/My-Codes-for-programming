@@ -10,10 +10,11 @@ from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from typing import List  # noqa: F401from typing import List  # noqa: F401
-
+import arcobattery
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
-myTerm = "urxvt"      # My terminal of choice
+myTerm = "alacritty"      # My terminal of choice
 myBrowser = "brave" # My terminal of choice
+home = os.path.expanduser('~')
 
 keys = [
          ### The essentials
@@ -24,7 +25,7 @@ keys = [
              ),
          Key([mod], "b",
              lazy.spawn(myBrowser),
-             desc='Qutebrowser'
+             desc='Bravebrowser'
              ),
         Key([mod], "r", lazy.spawncmd(),
             desc="Spawn a command using a prompt widget"),
@@ -116,6 +117,18 @@ keys = [
              lazy.layout.toggle_split(),
              desc='Toggle between split and unsplit sides of stack'
              ),
+
+         #          Brighness Keys
+         #  Key([mod, "shift"], "+",
+                 #  lazy.spawn("brightnessctl set +10%"),
+                 #  desc='Increase brightness'
+                 #  ),
+         #  Key([mod, "shift"], "-",
+                 #  lazy.spawn("brightnessctl set 10%-"),
+                 #  desc='Decrease brightness'
+                 #  ),
+
+
          #         # Dmenu scripts launched using the key chord SUPER+p followed by 'key'
          KeyChord([mod], "p", [
              Key([], "e",
@@ -157,15 +170,15 @@ keys = [
          ])
 ]
 
-groups = [Group("WWW", {'layout': 'monadtall'}),
-              Group("DEV", {'layout': 'monadtall'}),
-              Group("SYS", {'layout': 'monadtall'}),
-              Group("DOC", {'layout': 'monadtall'}),
-              Group("TEST", {'layout': 'monadtall'}),
-              Group("CHAT", {'layout': 'monadtall'}),
-              Group("MUS", {'layout': 'monadtall'}),
-              Group("VID", {'layout': 'monadtall'}),
-              Group("GFX", {'layout': 'floating'})]
+groups = [Group("いち", {'layout': 'monadtall'}),
+              Group("に", {'layout': 'monadtall'}),
+              Group("さん", {'layout': 'monadtall'}),
+              Group("よん", {'layout': 'monadtall'}),
+              Group("ご", {'layout': 'monadtall'}),
+              Group("ろく", {'layout': 'monadtall'}),
+              Group("なな", {'layout': 'monadtall'}),
+              Group("はち", {'layout': 'monadtall'}),
+              Group("きゅう", {'layout': 'floating'})]
 
 # Allow MODKEY+[0 through 9] to bind to groups, see https://docs.qtile.org/en/stable/manual/config/groups.html
 # MOD4 + index Number : Switch to Group[index]
@@ -191,28 +204,28 @@ layouts = [
     #layout.Zoomy(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2),
-    layout.RatioTile(**layout_theme),
-    layout.TreeTab(
-         font = "Ubuntu",
-         fontsize = 10,
-         sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
-         section_fontsize = 10,
-         border_width = 2,
-         bg_color = "1c1f24",
-         active_bg = "c678dd",
-         active_fg = "000000",
-         inactive_bg = "a9a1e1",
-         inactive_fg = "1c1f24",
-         padding_left = 0,
-         padding_x = 0,
-         padding_y = 5,
-         section_top = 10,
-         section_bottom = 20,
-         level_shift = 8,
-         vspace = 3,
-         panel_width = 200
-         ),
+     # layout.Stack(num_stacks=2),
+     # layout.RatioTile(**layout_theme),
+     # layout.TreeTab(
+      #     font = "Ubuntu",
+        #   fontsize = 10,
+        #   sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
+          # section_fontsize = 10,
+          # border_width = 2,
+          # bg_color = "1c1f24",
+          # active_bg = "c678dd",
+          # active_fg = "000000",
+          # inactive_bg = "a9a1e1",
+          # inactive_fg = "1c1f24",
+          # padding_left = 0,
+         #  padding_x = 0,
+         #  padding_y = 5,
+         #  section_top = 10,
+         #  section_bottom = 20,
+         #  level_shift = 8,
+         #  vspace = 3,
+         #  panel_width = 200
+          # ),
     layout.Floating(**layout_theme)
 ]
 
@@ -303,13 +316,13 @@ def init_widgets_list():
                        foreground = colors[0],
                        background = colors[0]
                        ),
-              widget.TextBox(
-                       text = '',
-                       background = colors[0],
-                       foreground = colors[5],
-                       padding = 0,
-                       fontsize = 37
-                       ),
+              #  widget.TextBox(
+                       #  text = '',
+                       #  background = colors[0],
+                       #  foreground = colors[5],
+                       #  padding = 0,
+                       #  fontsize = 37
+                       #  ),
              widget.Net(
                        interface = "enp6s0",
                        format = '{down} ↓↑ {up}',
@@ -317,13 +330,54 @@ def init_widgets_list():
                        background = colors[5],
                        padding = 5
                        ),
-              widget.TextBox(
-                       text = '',
+             widget.TextBox(
+                       text='',
                        background = colors[5],
                        foreground = colors[4],
                        padding = 0,
                        fontsize = 37
                        ),
+             widget.TextBox(
+                       text = "Brightness: ",
+                       foreground = colors[2],
+                       background = colors[4],
+                       padding = 5
+                     ),
+             widget.TextBox(
+                       text = "+ ",
+                       foreground = colors[2],
+                       background = colors[4],
+                       padding = 5,
+                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%')}
+                     ),   
+             widget.TextBox(
+                       text = "- " ,
+                       foreground = colors[2],
+                       background = colors[4],
+                       padding = 5,
+                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('brightnessctl set 10%-')}
+                     ), 
+             widget.TextBox(
+                       text='',
+                       background = colors[4],
+                       foreground = colors[5],
+                       padding = 0,
+                       fontsize = 37
+                       ), 
+              widget.TextBox(
+                      text="Net",
+                      background = colors[5],
+                      foreground = colors[2],
+                      padding = 5,
+                      mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e nmcli device wifi list')},
+                      ), 
+              widget.TextBox(
+                       text='',
+                       background = colors[5],
+                       foreground = colors[4],
+                       padding = 0,
+                       fontsize = 37
+                       ),   
              widget.TextBox(
                        text = " 🌡",
                        padding = 2,
@@ -403,19 +457,64 @@ def init_widgets_list():
                        foreground = colors[4],
                        padding = 0,
                        fontsize = 37
-                       ),
+                       ),    
+              widget.TextBox(
+                      text="VolCon",
+                      background = colors[4],
+                      foreground = colors[2],
+                      padding = 5,
+                      mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('pavucontrol')},
+                      ),  
+              widget.TextBox(
+                       text = '',
+                       background = colors[4],
+                       foreground = colors[5],
+                       padding = 0,
+                       fontsize = 37
+                       ),  
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
                        foreground = colors[0],
-                       background = colors[4],
+                       background = colors[5],
                        padding = 0,
                        scale = 0.7
                        ),
               widget.CurrentLayout(
                        foreground = colors[2],
-                       background = colors[4],
+                       background = colors[5],
                        padding = 5
                        ),
+              widget.TextBox(
+                       text = '',
+                       background = colors[5],
+                       foreground = colors[4],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+                arcobattery.BatteryIcon(
+                       padding=0,
+                       scale=0.7,
+                       y_poss=2,
+                       theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
+                       mouse_callbacks = {'Button1' : lambda: qtile.cmd_spawn(myTerm + ' -e acpi')},
+                       update_interval = 5,
+                       background = colors[4],
+                       foreground = colors[4],
+                       ),
+                 widget.Battery(format='{percent:2.0%}{char}',
+                                charge_char='',
+                                discharge_char='',
+                                background = colors[4],
+                                foreground = colors[2],
+                                update_interval=20,
+                                notify_below = 38),
+
+              #   widget.BatteryIcon(
+                       #  #background = colors[4],
+                       #  padding = 5,
+                       #  theme_path = "~/.config/qtile/icons/battery_icons_horiz",
+                       #  update_interval = 5
+              #           ),
               widget.TextBox(
                        text = '',
                        background = colors[4],
