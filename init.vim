@@ -7,7 +7,7 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'preservim/nerdcommenter'
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " this is for auto complete, prettier and tslinting
 
- let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-python']  " list of CoC extensions needed
+  let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-python']  " list of CoC extensions needed
 
     Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 
@@ -18,16 +18,31 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'junegunn/fzf',{'do':{ -> fzf#install() } } 
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
-    Plug 'mhinz/vim-startify'
+    Plug 'mhinz/vim-startify'    
+    "Dart/Flutter
+    Plug 'dart-lang/dart-vim-plugin'
+    Plug 'thosakwe/vim-flutter'
+    Plug 'natebosch/vim-lsc'
+    Plug 'natebosch/vim-lsc-dart'
+    Plug 'dracula/vim'  
+    " TypeScript Highlighting
+    Plug 'leafgarland/typescript-vim'
+    Plug 'peitalin/vim-jsx-typescript'
+
+
+    " File Explorer with Icons
+    Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+if (has("termguicolors"))
+ set termguicolors
+endif
 
 filetype plugin indent on
 
 "colorscheme PaperColor
-colorscheme vim-monokai-tasty
-
+colorscheme dracula
 
 
 " basic settings
@@ -154,4 +169,4 @@ highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
 
-set encoding=utf-8 
+set encoding=utf-8     
